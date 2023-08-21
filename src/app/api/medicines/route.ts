@@ -3,7 +3,7 @@ import Medicine from "@/models/Medicine";
 import { NextRequest, NextResponse } from "next/server";
 
 // Get all medicines
-export const GET =async (req:NextRequest, res: NextResponse) => {
+export const GET =async (request:NextRequest, res: NextResponse) => {
     try {
         await connectMongoDB();
         const medicines = await Medicine.find();
@@ -15,10 +15,11 @@ export const GET =async (req:NextRequest, res: NextResponse) => {
 
 // Create new medicine
 export const POST =async (req:NextRequest, res: NextResponse) => {
-    const { name, quantity, category, recommendedAge } = await req.json();
+    const { name, medicineId, quantity, category, expiry, recommendedAge } = await req.json();
     try {
         await connectMongoDB();
-        const newMedicine = await Medicine.create({name, quantity, category, recommendedAge})
+        const newMedicine = await Medicine.create({name, medicineId, quantity, category, expiry, recommendedAge})
+        console.log(newMedicine);
         return NextResponse.json(newMedicine)
     } catch (error) {
         return NextResponse.json(error)

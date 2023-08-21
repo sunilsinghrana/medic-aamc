@@ -5,6 +5,9 @@ const PatientSchema = new mongoose.Schema({
         type: String,
         required : true,
     },
+    lastName: {
+        type: String,
+    },
     age: {
         type:Number,
         min: 1,
