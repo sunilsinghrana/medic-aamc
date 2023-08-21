@@ -1,5 +1,5 @@
 export const getPatients =async () => {
-    const res = await fetch('http://localhost:3000/api/patients/', {cache: 'no-store'})
+    const res = await fetch('https://medic-aamc-6i8q/api/patients/', {cache: 'no-store'})
     if (!res.ok) {
         // This will activate the closest `error.js` Error Boundary
         throw new Error('Failed to fetch data')
