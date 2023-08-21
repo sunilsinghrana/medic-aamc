@@ -18,14 +18,13 @@ export function MedicineExpiry({setMedicineExpiry}:any) {
     const year: string = dateStr?.slice(1,5)
     const month: number = parseInt(dateStr?.slice(6,9))
     const newMonth : string = months[month - 1]
-
     return newMonth + year
     }
 
   React.useEffect(()=>{
     let newDate = getCorrectDate(JSON.stringify(date))
     setMedicineExpiry(newDate)
-  },[date])
+  },[date, getCorrectDate, setMedicineExpiry])
 
   return (
     <Popover>

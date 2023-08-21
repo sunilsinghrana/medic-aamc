@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { ScrollArea } from "./ui/scroll-area";
 import { AlertDialog, AlertDialogTrigger } from "./ui/alert-dialog";
 import DeleteMedicine from "./DeleteMedicine";
