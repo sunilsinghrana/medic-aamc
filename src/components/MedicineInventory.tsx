@@ -1,9 +1,24 @@
-import React from "react";
+'use client'
+import React, { useState } from "react";
 import { ScrollArea } from "./ui/scroll-area";
 import { AlertDialog, AlertDialogTrigger } from "./ui/alert-dialog";
 import DeleteMedicine from "./DeleteMedicine";
 
-export default function MedicineInventory({ medicines }:any) {
+export default function MedicineInventory() {
+  const [medicines, setMedicines] = useState([])
+  const [isLoading, setLoading] = useState(true)
+
+  React.useEffect(()=>{
+    fetch('/api/medicines')
+      .then((res) => res.json())
+      .then((data) => {
+        setMedicines(data)
+        setLoading(false)
+      })
+  },[])
+
+  if (isLoading) return <p>Loading...</p>
+  if (!medicines) return <p>No profile data</p>
 
   return (
     <div className="container bg-transparent my-5">
@@ -21,7 +36,7 @@ export default function MedicineInventory({ medicines }:any) {
           </thead>
 
           <tbody className="">
-            { medicines?.map((medicine: any) => (
+            { medicines && medicines.map((medicine: any) => (
                 <tr className="bg-[#D2E9E9] dark:bg-[#171721]" key={medicine._id}>
                   <td className="p-3 text-black dark:text-white">{medicine.medicineId}</td>
                   <td className="p-3">
