@@ -32,7 +32,7 @@ function SelectMedicineNId({
           placeholder="Medicine name"
           className="[appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none border border-gray-500"
           value={medicineName}
-          maxLength={4}
+          minLength={4}
           onChange={(e: any) => setMedicineName(e.target.value)}
           required
         />
