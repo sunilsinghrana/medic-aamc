@@ -1,17 +1,12 @@
 import React, { FormEvent, Fragment, useState } from "react";
 import { useRouter } from "next/navigation";
-import SelectMedicineCat from "./SelectMedicineCat";
-import SelectMedicineNId from "./SelectMedicineNId";
-import { MedicineExpiry } from "./MedicineExpiry";
-import MedicineQuantity from "./MedicineQuantity";
+import SelectMedicineCat from "../SelectMedicineCat";
+import SelectMedicineNId from "../SelectMedicineNId";
+import { MedicineExpiry } from "../MedicineExpiry";
+import MedicineQuantity from "../MedicineQuantity";
 import sendMedicineData from "@/utils/postMedicineDate";
 
-function MedicineDialog({
-  closeModal,
-  Dialog,
-  Transition,
-  isOpen,
-}: any) {
+function MedicineDialog({ closeModal, Dialog, Transition, isOpen }: any) {
   const router = useRouter();
 
   const [medicineId, setMedicineId] = useState("");
@@ -114,14 +109,14 @@ function MedicineDialog({
                     </div>
                   </div>
                   <div className="mt-4">
-                <button
+                    <button
                       type="submit"
                       className={`border dark:hover:bg-[#070711] hover:bg-[#319780] bg-[#319795] dark:border-white dark:text-white text-white hover:text-white font-bold px-4 py-1 rounded-lg`}
                       onClick={closeModal}
                     >
-                      ADD 
+                      ADD
                     </button>
-                </div>
+                  </div>
                 </form>
               </Dialog.Panel>
             </Transition.Child>

@@ -1,18 +1,18 @@
 "use client";
 import React, { useState } from "react";
 import { BiSearch } from "react-icons/bi";
-import { Dialog, Transition } from '@headlessui/react'
-import MedicineDialog from "../MedicineDialog";
+import { Dialog, Transition } from "@headlessui/react";
+import MedicineDialog from "../dialog/MedicineDialog";
 
 function SearchBar() {
-  let [isOpen, setIsOpen] = useState(false)
+  let [isOpen, setIsOpen] = useState(false);
 
   function closeModal() {
-    setIsOpen(false)
+    setIsOpen(false);
   }
 
   function openModal() {
-    setIsOpen(true)
+    setIsOpen(true);
   }
   return (
     <div className="md:w-full  h-20 flex flex-col md:flex-row items-center justify-around mt-4">
@@ -30,10 +30,19 @@ function SearchBar() {
       </div>
       {/* Add new medicine */}
       <div className="my-2">
-            <button type="button" className="border-2  dark:hover:bg-[#070711] hover:bg-[#319780] bg-[#319795] text-white px-4 py-2 rounded-xl" onClick={openModal}>
-              Add Medicine
-            </button>
-          <MedicineDialog closeModal={closeModal} Dialog={Dialog} Transition={Transition} isOpen={isOpen} />
+        <button
+          type="button"
+          className="border-2  dark:hover:bg-[#070711] hover:bg-[#319780] bg-[#319795] text-white px-4 py-2 rounded-xl"
+          onClick={openModal}
+        >
+          Add Medicine
+        </button>
+        <MedicineDialog
+          closeModal={closeModal}
+          Dialog={Dialog}
+          Transition={Transition}
+          isOpen={isOpen}
+        />
       </div>
     </div>
   );
